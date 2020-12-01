@@ -1,34 +1,42 @@
 #include "Utility.h"
+#include "Timer.h"
 #include <iostream>
 #include <algorithm>
 
-void FirstStar(std::vector<int>& data)
+void FirstStar(std::vector<int> data)
 {
 	std::cout << "Part 1: \n";
-	for (auto v1 : data)
+	Timer t("Part 1");
+
+	std::sort(std::begin(data), std::end(data));
+	for(auto v1 : data)
 	{
-		for (auto v2 : data)
+		int v2 = 2020 - v1;
+		auto result = std::find(std::begin(data), std::end(data), v2);
+		if (result != std::end(data))
 		{
-			if ( v1 + v2 == 2020)
-			{
-				std::cout << v1 << " + " << v2 << " = " << v1 + v2 << "\n";
-				std::cout << v1 * v2 << "\n";
-				return;
-			}
+			std::cout << v1 << " + " << v2 << " = " << v1 + v2 << "\n";
+			std::cout << v1 * v2 << "\n";
+			return;
 		}
 	}
 }
 
-void SecondStar(std::vector<int>& data)
+void SecondStar(std::vector<int> data)
 {
 	std::cout << "Part 2: \n";
+	Timer t("Part 2");
+
+	std::sort(std::begin(data), std::end(data));
 	for (auto v1 : data)
 	{
 		for (auto v2 : data)
 		{
-			for (auto v3 : data)
+			if (v1 != v2)
 			{
-				if ( v1 + v2 + v3 == 2020)
+				int v3 = 2020 - v1 - v2;
+				auto result = std::find(std::begin(data), std::end(data), v3);
+				if (result != std::end(data))
 				{
 					std::cout << v1 << " + " << v2 << " + " << v3 << " = " << v1 + v2 + v3 << "\n";
 					std::cout << v1 * v2 * v3 << "\n";
