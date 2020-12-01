@@ -7,13 +7,13 @@ set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Werror -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wpedantic  -Wnull-dereference -Wdouble-promotion -Wformat=2 ")
 
-include_directories("./src/")
+include_directories("./src/" "../src/")
 
 file(GLOB_RECURSE SOURCE 
-	"./src/*.c"
-	"./src/*.h"
 	"./src/*.cpp"
-	"./src/*.hpp"
+	"./src/*.h"
+	"../src/*.cpp"
+	"../src/*.h"
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE})
