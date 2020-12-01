@@ -16,7 +16,7 @@ void FirstStar(std::vector<int> data)
 		if (result != std::end(data))
 		{
 			std::cout << v1 << " + " << v2 << " = " << v1 + v2 << "\n";
-			std::cout << v1 * v2 << "\n";
+			std::cout << "Solution = " << v1 * v2 << "\n";
 			return;
 		}
 	}
@@ -39,7 +39,7 @@ void SecondStar(std::vector<int> data)
 				if (result != std::end(data))
 				{
 					std::cout << v1 << " + " << v2 << " + " << v3 << " = " << v1 + v2 + v3 << "\n";
-					std::cout << v1 * v2 * v3 << "\n";
+					std::cout << "Solution = " << v1 * v2 * v3 << "\n";
 					return;
 				}
 			}
