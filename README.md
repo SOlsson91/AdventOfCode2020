@@ -1,5 +1,15 @@
 # Advent of Code 2020
 
+## Day 2
+**Part 1:** <br />
+Valid passwords = 445 <br />
+Part 1: took 4.1457 ms <br />
+**Part 2:** <br />
+Valid passwords = 491 <br />
+Part 2: took 4.11389 ms <br />
+
+
+
 ## Day 1
 **Part 1:** <br />
 661 + 1359 = 2020 <br />

@@ -49,7 +49,7 @@ void SecondStar(std::vector<int> data)
 
 int main()
 {
-	std::vector<int> data = Utility::ReadFromFile("../input.txt");
+	std::vector<int> data = Utility::ReadFromFileToInt("../input.txt");
 
 	FirstStar(data);
 	SecondStar(data);
