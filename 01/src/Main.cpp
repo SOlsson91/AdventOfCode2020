@@ -3,9 +3,8 @@
 #include <iostream>
 #include <algorithm>
 
-void FirstStar(std::vector<int> data)
+int FirstStar(std::vector<int> data)
 {
-	std::cout << "Part 1: \n";
 	Timer t("Part 1");
 
 	std::sort(std::begin(data), std::end(data));
@@ -15,16 +14,15 @@ void FirstStar(std::vector<int> data)
 		auto result = std::find(std::begin(data), std::end(data), v2);
 		if (result != std::end(data))
 		{
-			std::cout << v1 << " + " << v2 << " = " << v1 + v2 << "\n";
-			std::cout << "Solution = " << v1 * v2 << "\n";
-			return;
+			//std::cout << v1 << " + " << v2 << " = " << v1 + v2 << "\n";
+			return v1 * v2;
 		}
 	}
+	return 0;
 }
 
-void SecondStar(std::vector<int> data)
+int SecondStar(std::vector<int> data)
 {
-	std::cout << "Part 2: \n";
 	Timer t("Part 2");
 
 	std::sort(std::begin(data), std::end(data));
@@ -38,19 +36,19 @@ void SecondStar(std::vector<int> data)
 				auto result = std::find(std::begin(data), std::end(data), v3);
 				if (result != std::end(data))
 				{
-					std::cout << v1 << " + " << v2 << " + " << v3 << " = " << v1 + v2 + v3 << "\n";
-					std::cout << "Solution = " << v1 * v2 * v3 << "\n";
-					return;
+					//std::cout << v1 << " + " << v2 << " + " << v3 << " = " << v1 + v2 + v3 << "\n";
+					return v1 * v2 * v2;
 				}
 			}
 		}
 	}
+	return 0;
 }
 
 int main()
 {
 	std::vector<int> data = Utility::ReadFromFileToInt("../input.txt");
 
-	FirstStar(data);
-	SecondStar(data);
+	std::cout << "Part 1 = " << FirstStar(data) << "\n";
+	std::cout << "Part 2 = " << SecondStar(data) << "\n";
 }
