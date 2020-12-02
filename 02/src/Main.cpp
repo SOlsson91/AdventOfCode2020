@@ -1,34 +1,10 @@
 #include <iostream>
+#include <regex>
 #include "Utility.h"
 #include "Timer.h"
-#include <regex>
-#include <algorithm>
+#include "PasswordData.h"
 
-struct PasswordData
-{
-	int minTimes;
-	int maxTimes;
-	std::string character;
-	std::string password;
-};
-
-bool CheckIfValid(PasswordData data)
-{
-	int occurrences = std::count(std::begin(data.password), std::end(data.password), *data.character.c_str());
-
-	if (occurrences >= data.minTimes && occurrences <= data.maxTimes)
-		return true;
-	return false;
-}
-
-bool CheckIfValidPartTwo(PasswordData data)
-{
-	if ((data.password[data.minTimes - 1] == *data.character.c_str()) ^ (data.password[data.maxTimes -1] == *data.character.c_str()))
-		return true;
-	return false;
-}
-
-void FirstStar(std::vector<std::string> data)
+int FirstStar(std::vector<std::string> data)
 {
 	Timer t("Part 1:");
 	int validPasswords = 0;
@@ -45,15 +21,14 @@ void FirstStar(std::vector<std::string> data)
 			passwordData.character = match[3];
 			passwordData.password = match[4];
 
-			if(CheckIfValid(passwordData))
+			if(passwordData.CheckIfValidPartOne())
 				validPasswords++;
 		}
 	}
-
-	std::cout << "Valid passwords = " << validPasswords << "\n";
+	return validPasswords;
 }
 
-void SecondStar(std::vector<std::string> data)
+int SecondStar(std::vector<std::string> data)
 {
 	Timer t("Part 2:");
 	int validPasswords = 0;
@@ -70,18 +45,17 @@ void SecondStar(std::vector<std::string> data)
 			passwordData.character = match[3];
 			passwordData.password = match[4];
 
-			if(CheckIfValidPartTwo(passwordData))
+			if(passwordData.CheckIfValidPartTwo())
 				validPasswords++;
 		}
 	}
-
-	std::cout << "Valid passwords = " << validPasswords << "\n";
+	return validPasswords;
 }
 
 int main()
 {
 	std::vector<std::string> data = Utility::ReadFromFileToString("../input.txt");
-	FirstStar(data);
-	SecondStar(data);
+	std::cout << "Part 1 = " << FirstStar(data) << "\n";
+	std::cout << "Part 2 = " << SecondStar(data) << "\n";
 }
 

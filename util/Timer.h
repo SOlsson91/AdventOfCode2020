@@ -21,6 +21,6 @@ public:
         std::chrono::time_point<std::chrono::high_resolution_clock> end = std::chrono::high_resolution_clock::now();
         m_Duration = end - m_StartTime;
         double ms = m_Duration.count() * 1000.0;
-        std::cout << static_cast<std::string>(m_FunctionName) << " took " << ms << " ms\n";
+        std::cout << "(" << ms << " ms) ";
     }
 };
