@@ -58,14 +58,14 @@ int WalkDownMap(const Map& map, V2 direction)
 
 unsigned int PartOne(const Map& map)
 {
-	Timer t("Part One");
+	Timer t;
 	V2 direction = {3, 1};
 	return WalkDownMap(map, direction);
 }
 
 unsigned long PartTwo(const Map& map)
 {
-	Timer t("Part 2");
+	Timer t;
 	V2 directions[5] = {{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}};
 	unsigned long solution = 1;
 

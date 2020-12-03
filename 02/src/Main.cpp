@@ -6,7 +6,7 @@
 
 int FirstStar(std::vector<std::string> data)
 {
-	Timer t("Part 1:");
+	Timer t;
 	int validPasswords = 0;
 	std::regex regex("(\\d+)-(\\d+) (.): (.+)");
 	for (auto row : data)
@@ -30,7 +30,7 @@ int FirstStar(std::vector<std::string> data)
 
 int SecondStar(std::vector<std::string> data)
 {
-	Timer t("Part 2:");
+	Timer t;
 	int validPasswords = 0;
 	std::regex regex("(\\d+)-(\\d+) (.): (.+)");
 	for (auto row : data)

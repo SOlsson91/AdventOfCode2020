@@ -5,7 +5,7 @@
 
 int FirstStar(std::vector<int> data)
 {
-	Timer t("Part 1");
+	Timer t;
 
 	std::sort(std::begin(data), std::end(data));
 	for(auto v1 : data)
@@ -23,7 +23,7 @@ int FirstStar(std::vector<int> data)
 
 int SecondStar(std::vector<int> data)
 {
-	Timer t("Part 2");
+	Timer t;
 
 	std::sort(std::begin(data), std::end(data));
 	for (auto v1 : data)
@@ -36,7 +36,6 @@ int SecondStar(std::vector<int> data)
 				auto result = std::find(std::begin(data), std::end(data), v3);
 				if (result != std::end(data))
 				{
-					//std::cout << v1 << " + " << v2 << " + " << v3 << " = " << v1 + v2 + v3 << "\n";
 					return v1 * v2 * v2;
 				}
 			}
