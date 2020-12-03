@@ -36,7 +36,7 @@ Map CreateMap(std::vector<std::string> fileInput)
 	return map;
 }
 
-int WalkDownMap(Map map, V2 direction)
+int WalkDownMap(const Map& map, V2 direction)
 {
 	V2 position = {0, 0};
 	int treeHits = 0;
@@ -56,14 +56,14 @@ int WalkDownMap(Map map, V2 direction)
 	return treeHits;
 }
 
-int PartOne(Map map)
+unsigned int PartOne(const Map& map)
 {
 	Timer t("Part One");
 	V2 direction = {3, 1};
 	return WalkDownMap(map, direction);
 }
 
-unsigned long PartTwo(Map map)
+unsigned long PartTwo(const Map& map)
 {
 	Timer t("Part 2");
 	V2 directions[5] = {{1, 1}, {3, 1}, {5, 1}, {7, 1}, {1, 2}};

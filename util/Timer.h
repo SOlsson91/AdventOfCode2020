@@ -8,10 +8,8 @@ class Timer
 private:
     std::chrono::time_point<std::chrono::high_resolution_clock> m_StartTime;
     std::chrono::duration<double> m_Duration;
-    const char* m_FunctionName;
 public:
-    Timer(const char* functionName)
-        : m_FunctionName(functionName)
+    Timer()
     {
         m_StartTime = std::chrono::high_resolution_clock::now();
     }
