@@ -54,6 +54,7 @@ int PartTwo(std::vector<int>& seats)
 {
 	Timer t;
 	std::sort(std::begin(seats), std::end(seats));
+
 	int i = seats[0];
 	for (auto seat : seats)
 	{
@@ -63,10 +64,12 @@ int PartTwo(std::vector<int>& seats)
 	}
 	return -1;
 }
+
 int main()
 {
 	std::vector<std::string> data = Utility::ReadFromFileToString("../input.txt");
 	std::vector<int> seats;
+
 	std::cout << "Part 1 = " << PartOne(data, seats) << "\n";
 	std::cout << "Part 2 = " << PartTwo(seats) << "\n";
 }
