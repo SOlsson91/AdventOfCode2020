@@ -174,6 +174,6 @@ int main()
 	std::vector<std::string> input = Utility::ReadFromFileToString("../input.txt");
 	std::vector<PassportData> data = GetDataFromInput(input);
 
-	std::cout << "Part One: " << PartOne(data) << "\n";
-	std::cout << "Part Two: " << PartTwo(data) << "\n";
+	std::cout << "Part 1 = " << PartOne(data) << "\n";
+	std::cout << "Part 2 = " << PartTwo(data) << "\n";
 }

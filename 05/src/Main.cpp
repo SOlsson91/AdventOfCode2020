@@ -8,7 +8,7 @@ int GetRow(const std::string& line)
 {
 	int min = 0;
 	int max = 127;
-	for (unsigned long i = 0; i < line.size() - 3; i++)
+	for (unsigned long i = 0; i <= line.size() - 4; i++)
 	{
 		if (i == line.size() - 4)
 		{
@@ -70,11 +70,11 @@ int PartOne(const std::vector<std::string>& data, std::vector<int>& seats)
 			return -1;
 		}
 
-		int result = (row * 8) + column;
-		seats.push_back(result);
+		int seatId = (row * 8) + column;
+		seats.push_back(seatId);
 
-		if (result > highestId)
-			highestId = result;
+		if (seatId > highestId)
+			highestId = seatId;
 	}
 	return highestId;
 }
@@ -92,11 +92,10 @@ int PartTwo(std::vector<int>& seats)
 	}
 	return -1;
 }
-
 int main()
 {
 	std::vector<std::string> data = Utility::ReadFromFileToString("../input.txt");
 	std::vector<int> seats;
-	std::cout << "Part One = " << PartOne(data, seats) << "\n";
-	std::cout << "Part Two = " << PartTwo(seats) << "\n";
+	std::cout << "Part 1 = " << PartOne(data, seats) << "\n";
+	std::cout << "Part 2 = " << PartTwo(seats) << "\n";
 }
