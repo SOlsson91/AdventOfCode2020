@@ -3,11 +3,9 @@
 #include "Utility.h"
 #include "Timer.h"
 
-int GetRow(const std::string& line)
+int GetRow(const std::string& line, int min, int max)
 {
-	int min = 0;
-	int max = 127;
-	for (unsigned long i = 0; i <= line.size() - 4; i++)
+	for (unsigned int i = 0; i <= line.size() - 4; i++)
 	{
 		if (i == line.size() - 4)
 		{
@@ -25,11 +23,9 @@ int GetRow(const std::string& line)
 	return -1;
 }
 
-int GetColumn(const std::string& line)
+int GetColumn(const std::string& line, int min, int max)
 {
-	int min = 0;
-	int max = 7;
-	for (unsigned long i = line.size() - 3; i <= line.size(); i++)
+	for (unsigned int i = line.size() - 3; i <= line.size(); i++)
 	{
 		if (i == line.size())
 		{
@@ -53,14 +49,14 @@ int PartOne(const std::vector<std::string>& data, std::vector<int>& seats)
 	int highestId = 0;
 	for (auto line : data)
 	{
-		int row = GetRow(line);
+		int row = GetRow(line, 0, 127);
 		if (row == -1)
 		{
 			std::cout << "[Error] Could not get Row\n";
 			return -1;
 		}
 
-		int column = GetColumn(line);
+		int column = GetColumn(line, 0, 7);
 		if (column == -1)
 		{
 			std::cout << "[Error] Could not get Column\n";
@@ -70,8 +66,7 @@ int PartOne(const std::vector<std::string>& data, std::vector<int>& seats)
 		int seatId = (row * 8) + column;
 		seats.push_back(seatId);
 
-		if (seatId > highestId)
-			highestId = seatId;
+		highestId = std::max(seatId, highestId);
 	}
 	return highestId;
 }
