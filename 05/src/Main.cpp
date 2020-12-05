@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <algorithm>
 #include "Utility.h"
 #include "Timer.h"
@@ -16,11 +15,11 @@ int GetRow(const std::string& line)
 		}
 		if (line[i] == 'F')
 		{
-			max = max - std::ceil((max - min) / 2.0f);
+			max = max - (max - min) / 2.0f;
 		}
 		else if (line[i] == 'B')
 		{
-			min = min + std::ceil((max - min) / 2.0f);
+			min = min + (max - min) / 2.0f + 1;
 		}
 	}
 	return -1;
@@ -38,13 +37,11 @@ int GetColumn(const std::string& line)
 		}
 		if (line[i] == 'L')
 		{
-			int temp = std::ceil((max - min) / 2.0f);
-			max = max - temp;
+			max = max - (max - min) / 2.0f;
 		}
 		else if (line[i] == 'R')
 		{
-			int temp = std::ceil((max - min) / 2.0f);
-			min = min + temp;
+			min = min + (max - min) / 2.0f + 1;
 		}
 	}
 	return -1;
