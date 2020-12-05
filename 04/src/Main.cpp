@@ -77,7 +77,7 @@ struct PassportData
 
 	bool CheckEyeColor()
 	{
-		std::regex rgx("(amb|blu|brn|gry|grn|hzl|oth)");
+		std::regex rgx("^(amb|blu|brn|gry|grn|hzl|oth)$");
 		std::smatch match;
 		std::regex_search(ecl, match, rgx);
 		if (!match.empty())
