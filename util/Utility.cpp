@@ -43,3 +43,10 @@ std::vector<std::string> Utility::ReadFromFileToString(const std::string& inputF
 	}
 	return data;
 }
+
+std::vector<std::string> Utility::SplitString(const std::string& line)
+{
+	std::istringstream iss(line);
+	return {std::istream_iterator<std::string>(iss), std::istream_iterator<std::string>()};
+
+}
