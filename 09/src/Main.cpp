@@ -10,9 +10,7 @@ bool CheckIfSum(int numToMatch, std::vector<long long> numbers)
 		for (unsigned int i = 0; i < numbers.size(); i++)
 		{
 			if (num + numbers[i] == numToMatch)
-			{
 				return true;
-			}
 		}
 	}
 	return false;
@@ -21,7 +19,6 @@ bool CheckIfSum(int numToMatch, std::vector<long long> numbers)
 long long PartOne(int numbersToCheck, const std::vector<long long>& data)
 {
 	Timer t;
-
 	for (unsigned int i = numbersToCheck; i < data.size(); i++)
 	{
 		std::vector<long long> subVector(std::begin(data) + i - numbersToCheck, std::begin(data) + i);
